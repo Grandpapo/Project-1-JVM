@@ -1,4 +1,4 @@
-const myKey = config.APIkey;
+
 
 // Grab users location:
 navigator.geolocation.getCurrentPosition(position => {
@@ -14,4 +14,5 @@ navigator.geolocation.getCurrentPosition(position => {
 
 
 // Location recognition Url (to get list of entities given lat & long)
+const myKey = config.APIkey;
 const requestUrl = 'https://dev.virtualearth.net/REST/v1/LocationRecog/' + userLocation + '?&top={10}&distanceunit=mi&verboseplacenames=false&includeEntityTypes=naturalPOI&key=' + myKey;
