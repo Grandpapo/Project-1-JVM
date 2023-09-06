@@ -8,3 +8,11 @@ body {
 header {
   font-family: 'Original Surfer', cursive;
 }
+
+.surf-planner {
+  font-size: 80px;
+}
+
+.zip-code {
+  max-width: 185px;
+}
