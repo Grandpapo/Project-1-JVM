@@ -9,17 +9,17 @@ An application that shows you the best area to surf today based on your skill le
 
 ## User Story & Acceptance Criteria:
 
-* As a beginner surfer
+* As a beginner surfer:
 
 * I want to see the beaches near me that have waves to match my skill level
 * It is done when I am able to enter my location and skill level and see beaches that have waves between 1-2ft and the weather in that area
-
-* As an intermediate surfer
+---
+* As an intermediate surfer:
 
 * I want to see the beaches near me that have waves to match my skill level
 * It is done when I am able to enter my location and skill level and see beaches that have waves between 2-4ft and the weather in that area
-
-* As an advanced surfer
+---
+* As an advanced surfer:
 * I want to see the beaches near me that have waves to match my skill level
 * It is done when I am able to enter my location and skill level and see beaches that have waves between 7-11ft and the weather in that area
 * A Wireframe (Full-size and Mobile-size): see wireframes below
@@ -28,7 +28,7 @@ An application that shows you the best area to surf today based on your skill le
 
 * CSS framework:
 Bulma
-
+---
 * APIs:
 NOAA - for ocean weather and wave info
 	-wave height (needed for scoring)
