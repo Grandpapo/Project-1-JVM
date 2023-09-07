@@ -14,6 +14,16 @@ navigator.geolocation.getCurrentPosition(position => {
 
     //userLocation = '33.613548, -117.929779'
 
+    let requestNOAAurl = 'https://api.weather.gov/points/' + userLat + ',' + userLon;
+
+    fetch(requestNOAAurl)
+        .then(function (response) {
+            return response.json();
+        })
+        .then (function(data){
+            console.log(data);
+        });
+
     if (userCoords !== null) {
 
         let map;
@@ -60,6 +70,11 @@ navigator.geolocation.getCurrentPosition(position => {
         initialize();
     }
 });
+
+
+
+
+
 // Create the script tag, set the appropriate attributes
 // var script = document.createElement('script');
 // script.src = 'https://maps.googleapis.com/maps/api/js?key=AIzaSyARr4d7FW6fKgE5ZHkaPxvAkve8lBmm5DQ&callback=initMap';
