@@ -1,6 +1,10 @@
-const config = {
-    APIkey: 'Au2Pii1Ekhq7AH59n8RGbkB0bUhdUsUQztxjl7I2mwipRRSDqPrYn5rT9aGVYukV'
+const configGoogle = {
+    APIkey: 'AAIzaSyARr4d7FW6fKgE5ZHkaPxvAkve8lBmm5DQ'
 }
+
+
+// James Google:    APIkey: ''
+// Marcos Google:   APIkey: ''
 
 const configNOAA = {
     APIkey: 'xeBPktZJHlPyrpDMigvqnwtFNOraRxnJ'

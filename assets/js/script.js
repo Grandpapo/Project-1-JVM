@@ -12,14 +12,10 @@ navigator.geolocation.getCurrentPosition(position => {
 
     let userLocation = userLat + ',' + userLon;
 
-    const bingKey = config.APIkey;
-    const requestUrlBing = 'https://dev.virtualearth.net/REST/v1/LocationRecog/' + userLocation + '?&top=10&distanceunit=mi&verboseplacenames=false&Type=Beaches&output=json&key=' + bingKey;
+    const googleKey = config.APIkey;
+    const requestUrlGoogle = 'https://maps.googleapis.com/maps/api/place/nearbysearch/json?&location=' + userLocation + '&radius=1500&type=beaches&key=' + googleKey;
 
-    // function testTest (requestUrlBing) {
-    //     console.log(requestUrlBing);
-    // }
-
-    fetch(requestUrlBing)
+    fetch(requestUrlGoogle)
         .then(function (response) {
             return response.json();
         })
