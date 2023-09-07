@@ -29,3 +29,8 @@ button{
 header {
   font-family: 'Original Surfer', cursive;
 }
+
+#map {
+  height: 50vh;
+  width: 50vh;
+}
