@@ -1,12 +1,29 @@
 
-
-// Grab users location:
+// Grab users location using HTML Geolocation API:
 navigator.geolocation.getCurrentPosition(position => {
-    const userLocation = position.coords;
-    // Show a map centered at latitude / longitude.
-    console.log(userLocation);
-    return(userLocation);
+    const userCoords = position.coords;
+    // display user geolocation results:
+    console.log(userCoords);
+    let userLat = position.coords.latitude;
+    let userLon = position.coords.longitude;
+
+    console.log(userLat);
+    console.log(userLon);
+
+    let userLocation = userLat + ',' + userLon;
+
+    const bingKey = config.APIkey;
+    const requestUrlBing = 'https://dev.virtualearth.net/REST/v1/LocationRecog/' + userLocation + '?&top={10}&distanceunit=mi&verboseplacenames=false&includeEntityTypes=naturalPOI&key=' + bingKey;
+
+    fetch(requestUrlBing)
+        .then(function (response) {
+            return response.json();
+        })
+        .then(function (data) {
+            console.log(data);
+        })
 });
+
 
 
 
@@ -14,5 +31,15 @@ navigator.geolocation.getCurrentPosition(position => {
 
 
 // Location recognition Url (to get list of entities given lat & long)
-const myKey = config.APIkey;
-const requestUrl = 'https://dev.virtualearth.net/REST/v1/LocationRecog/' + userLocation + '?&top={10}&distanceunit=mi&verboseplacenames=false&includeEntityTypes=naturalPOI&key=' + myKey;
+
+
+
+
+
+// NOAA API setup
+
+//const noaaKey = configNOAA.APIkey;
+
+// request data from NOAA using user latitude and longitude
+
+// const requestUrlNOAA = 'https://api.weather.gov/points/' + userLat + ',' + userLon;
