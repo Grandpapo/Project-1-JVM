@@ -13,7 +13,11 @@ navigator.geolocation.getCurrentPosition(position => {
     let userLocation = userLat + ',' + userLon;
 
     const bingKey = config.APIkey;
-    const requestUrlBing = 'https://dev.virtualearth.net/REST/v1/LocationRecog/' + userLocation + '?&top={10}&distanceunit=mi&verboseplacenames=false&includeEntityTypes=naturalPOI&key=' + bingKey;
+    const requestUrlBing = 'https://dev.virtualearth.net/REST/v1/LocationRecog/' + userLocation + '?&top=10&distanceunit=mi&verboseplacenames=false&Type=Beaches&output=json&key=' + bingKey;
+
+    // function testTest (requestUrlBing) {
+    //     console.log(requestUrlBing);
+    // }
 
     fetch(requestUrlBing)
         .then(function (response) {
