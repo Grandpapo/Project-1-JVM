@@ -11,14 +11,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Original+Surfer&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="./assets/style.css">
-  <script async defer>
-    (g => { var h, a, k, p = "The Google Maps JavaScript API", c = "google", l = "importLibrary", q = "__ib__", m = document, b = window; b = b[c] || (b[c] = {}); var d = b.maps || (b.maps = {}), r = new Set, e = new URLSearchParams, u = () => h || (h = new Promise(async (f, n) => { await (a = m.createElement("script")); e.set("libraries", [...r] + ""); for (k in g) e.set(k.replace(/[A-Z]/g, t => "_" + t[0].toLowerCase()), g[k]); e.set("callback", c + ".maps." + q); a.src = `https://maps.${c}apis.com/maps/api/js?` + e; d[q] = f; a.onerror = () => h = n(Error(p + " could not load.")); a.nonce = m.querySelector("script[nonce]")?.nonce || ""; m.head.append(a) })); d[l] ? console.warn(p + " only loads once. Ignoring:", g) : d[l] = (f, ...n) => r.add(f) && u().then(() => d[l](f, ...n)) })({
-      key: "AIzaSyARr4d7FW6fKgE5ZHkaPxvAkve8lBmm5DQ",
-      v: "weekly",
-      // Use the 'v' parameter to indicate the version to use (weekly, beta, alpha, etc.).
-      // Add other bootstrap parameters as needed, using camel case.
-    });
-  </script>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyARr4d7FW6fKgE5ZHkaPxvAkve8lBmm5DQ&libraries=places&callback=initApp"></script>
   <script defer src="./assets/js/config.js"></script>
   <script defer src="./assets/js/script.js"></script>
 </head>
@@ -29,14 +22,14 @@
     <header class="title is-full is-flex is-justify-content-space-around mb-6 surf-planner">
       Surf Planner
     </header>
-
-    <input class="container is-centered is-flex" type="number" type="text" placeholder="zip code" id="user-input">
-    <div class="buttons is-centered container mt-5">
-      <button class="button is-success is-flex is-medium beginner-btn">Beginner</button>
-      <button class="button is-warning is-flex is-medium intermediate-btn">Intermediate</button>
-      <button class="button is-danger is-flex is-medium advanced-btn">Advanced</button>
+    <div class="button-container">
+      <input class="container is-centered is-flex" type="number" type="text" placeholder="zip code" id="user-input">
+      <div class="buttons is-centered container mt-5">
+        <button class="button is-success is-flex is-medium beginner-btn">Beginner</button>
+        <button class="button is-warning is-flex is-medium intermediate-btn">Intermediate</button>
+        <button class="button is-danger is-flex is-medium advanced-btn">Advanced</button>
+      </div>
     </div>
-    <div id="map"></div>
 
     <div class="results hide">
       <h2 class="title has-text-white location-1">
