@@ -38,6 +38,32 @@ function initApp() {
                         longitude: place.geometry.location.lng()
                     }));
                     console.log(beachLocations);
+                    for (let i = 0; i < beachLocations.length; i++) {
+                        // Grab place.latitude
+                        // Grab place.longitude
+                        // need to write if statement if (sigHeight_m > 0) {}
+                        // Want to grab the first 5 locations IF it is truthy
+                        // if (difficulty == 1) Then set maxwaveheight = 2ft
+                        // if (difficulty == 2) then set maxwaveheight = 5ft
+                        // if (difficulty == 3) then set maxwaveheight = 11ft
+                        // if (difficulty == 1) Then set minwaveheight = 1ft
+                        // if (difficulty == 2) then set minwaveheight = 3ft
+                        // if (difficulty == 3) then set minwaveheight = 11ft
+                        // MENTAL NOTE: 1ft = 0.3048meters 2ft = 0.6096 
+                        var locationLat = beachLocations[i].latitude;
+                        var locationLon = beachLocations[i].longitude;
+                        let wwoAPIKey = '6d4a727b13e24cf7981194923230809'
+                        let requestWeatherOnline = 'https://api.worldweatheronline.com/premium/v1/marine.ashx?key=' + wwoAPIKey + '&format=json&q=' + locationLat + ',' + locationLon;
+                        fetch(requestWeatherOnline)
+                            .then(function (response) {
+                                return response.json();
+                            })
+                            .then(function (data) {
+                                console.log(data);
+                            })
+                        // console.log(locationLat);
+                        // console.log(locationLon);
+                    }
                 }
             }
         }
@@ -103,6 +129,17 @@ function findNearbyBeaches(zipcode) {
     });
 }
 
+// let tempLat = 0;
+// let tempLon = 0;
+// let wwoAPIKey = '6d4a727b13e24cf7981194923230809'
+// let requestWeatherOnline = 'https://api.worldweatheronline.com/premium/v1/marine.ashx?key=' + wwoAPIKey + '&format=json&q=' + locationLon + ',' + locationLat;
+// fetch(requestWeatherOnline)
+//     .then(function (response) {
+//         return response.json();
+//     })
+//     .then(function (data) {
+//         console.log(data);
+//     })
 
 searchBtnEl.addEventListener('click', function (event) {
     event.preventDefault();
