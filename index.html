@@ -11,7 +11,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Original+Surfer&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="./assets/style.css">
-  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyARr4d7FW6fKgE5ZHkaPxvAkve8lBmm5DQ&libraries=places&callback=initApp"></script>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyARr4d7FW6fKgE5ZHkaPxvAkve8lBmm5DQ&libraries=places"></script>
   <script defer src="./assets/js/config.js"></script>
   <script defer src="./assets/js/script.js"></script>
 </head>
@@ -23,7 +23,10 @@
       Surf Planner
     </header>
     <div class="button-container">
-      <input class="container is-centered is-flex" type="number" type="text" placeholder="zip code" id="user-input">
+      <form id ="zipInput">
+        <input class="container is-centered is-flex" type="number" type="text" placeholder="zip code" id="user-input">
+        <button type="submit" class="container is-centered is-flex search-btn">Search</button>
+      </form>
       <div class="buttons is-centered container mt-5">
         <button class="button is-success is-flex is-medium beginner-btn">Beginner</button>
         <button class="button is-warning is-flex is-medium intermediate-btn">Intermediate</button>
