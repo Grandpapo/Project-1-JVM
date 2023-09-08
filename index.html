@@ -12,7 +12,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Original+Surfer&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="./assets/style.css">
   <script async defer>
-    (g=>{var h,a,k,p="The Google Maps JavaScript API",c="google",l="importLibrary",q="__ib__",m=document,b=window;b=b[c]||(b[c]={});var d=b.maps||(b.maps={}),r=new Set,e=new URLSearchParams,u=()=>h||(h=new Promise(async(f,n)=>{await (a=m.createElement("script"));e.set("libraries",[...r]+"");for(k in g)e.set(k.replace(/[A-Z]/g,t=>"_"+t[0].toLowerCase()),g[k]);e.set("callback",c+".maps."+q);a.src=`https://maps.${c}apis.com/maps/api/js?`+e;d[q]=f;a.onerror=()=>h=n(Error(p+" could not load."));a.nonce=m.querySelector("script[nonce]")?.nonce||"";m.head.append(a)}));d[l]?console.warn(p+" only loads once. Ignoring:",g):d[l]=(f,...n)=>r.add(f)&&u().then(()=>d[l](f,...n))})({
+    (g => { var h, a, k, p = "The Google Maps JavaScript API", c = "google", l = "importLibrary", q = "__ib__", m = document, b = window; b = b[c] || (b[c] = {}); var d = b.maps || (b.maps = {}), r = new Set, e = new URLSearchParams, u = () => h || (h = new Promise(async (f, n) => { await (a = m.createElement("script")); e.set("libraries", [...r] + ""); for (k in g) e.set(k.replace(/[A-Z]/g, t => "_" + t[0].toLowerCase()), g[k]); e.set("callback", c + ".maps." + q); a.src = `https://maps.${c}apis.com/maps/api/js?` + e; d[q] = f; a.onerror = () => h = n(Error(p + " could not load.")); a.nonce = m.querySelector("script[nonce]")?.nonce || ""; m.head.append(a) })); d[l] ? console.warn(p + " only loads once. Ignoring:", g) : d[l] = (f, ...n) => r.add(f) && u().then(() => d[l](f, ...n)) })({
       key: "AIzaSyARr4d7FW6fKgE5ZHkaPxvAkve8lBmm5DQ",
       v: "weekly",
       // Use the 'v' parameter to indicate the version to use (weekly, beta, alpha, etc.).
@@ -30,8 +30,7 @@
       Surf Planner
     </header>
 
-    <input class="container is-centered is-flex" type="number" type="text"
-      placeholder="zip code" id="user-input">
+    <input class="container is-centered is-flex" type="number" type="text" placeholder="zip code" id="user-input">
     <div class="buttons is-centered container mt-5">
       <button class="button is-success is-flex is-medium beginner-btn">Beginner</button>
       <button class="button is-warning is-flex is-medium intermediate-btn">Intermediate</button>
@@ -39,18 +38,20 @@
     </div>
     <div id="map"></div>
 
-    <div class="container results">
-      <h2 class="title has-text-white is-full is-flex location-1">
+    <div class="results">
+      <h2 class="title has-text-white is-full is-flex is-justify-content-space-around location-1">
         Location #1
       </h2>
-      <div class="box is-flex is-justify-content-space-around location-1-wave-height ">
-        Wave Height:
-      </div>
-      <div class="box location-1-weather">
-        Weather:
-      </div>
-      <div class="box location-1-wind">
-        Wind:
+      <div class="columns is-full is-flex is-justify-content-center">
+        <div class="box is-flex is-justify-content-space-around location-1-wave-height ">
+          Wave Height:
+        </div>
+        <div class="box is-flex is-justify-content-space-around location-1-weather">
+          Weather:
+        </div>
+        <div class="box is-flex is-justify-content-space-around location-1-wind">
+          Wind:
+        </div>
       </div>
       <h2 class="title has-text-white is-full is-flex is-justify-content-space-around location-2">
         Location #2
@@ -96,8 +97,10 @@
 </body>
 
 <footer>
-  <div class = "box location-1 mt-6" > By using this application, users are bound by 
-  <a href="https://www.google.com/intl/en/policies/terms/"> Google's Terms of Service </a> and <a href="https://policies.google.com/privacy">  Google's Privacy Policy.</a></div>
+  <div class="box location-1 mt-6"> By using this application, users are bound by
+    <a href="https://www.google.com/intl/en/policies/terms/"> Google's Terms of Service </a> and <a
+      href="https://policies.google.com/privacy"> Google's Privacy Policy.</a>
+  </div>
 </footer>
 
 </html>
