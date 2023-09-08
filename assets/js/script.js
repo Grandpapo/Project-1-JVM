@@ -14,17 +14,10 @@ navigator.geolocation.getCurrentPosition(position => {
 
     //userLocation = '33.613548, -117.929779'
 
-    let requestNOAAurl = 'https://api.weather.gov/points/' + userLat + ',' + userLon;
-
-    fetch(requestNOAAurl)
-        .then(function (response) {
-            return response.json();
-        })
-        .then (function(data){
-            console.log(data);
-        });
-
     if (userCoords !== null) {
+
+        // use google maps API to search for beaches within a 20 mile radius of user location, 
+        // grab latitude and longitude of all beach results from data output
 
         let map;
 
@@ -48,7 +41,7 @@ navigator.geolocation.getCurrentPosition(position => {
             });
 
             var request = {
-                location: userCoordinates,
+                location: userLocation,
                 radius: '500',
                 keyword: ['beach']
             };
@@ -69,8 +62,44 @@ navigator.geolocation.getCurrentPosition(position => {
         initMap();
         initialize();
     }
+
+    // once lat and lon are retrieved from google api, input the coords into the NOAA API to grab wave height, weather and wind
+    // forEach item that is returned from google, run through NOAA API
+    // if beginner is clicked, display locations with 1-2ft wave height
+    // if intermediate is clicked, display locations with 3-5ft wave height
+    // if advanced is clicked, display locations with 6-11ft wave height
+
+    let requestNOAAurl = 'https://api.weather.gov/points/' + userLat + ',' + userLon;
+
+    fetch(requestNOAAurl)
+        .then(function (response) {
+            return response.json();
+        })
+        .then (function(data){
+            console.log(data);
+        });
 });
 
+// If user doesn't share location, they can enter zipcode
+// turn zipcode into latitude and longitude
+
+function coordsZip(zipcode) 
+{
+    var geocoder = new google.maps.Geocoder();
+    var address = zipcode;
+    geocoder.geocode({ 'address': 'zipcode '+address }, function (results, status) {
+        if (status == google.maps.GeocoderStatus.OK) {
+            var zipLat = results[0].geometry.location.lat();
+            var zipLon = results[0].geometry.location.lng();
+            console.log("Latitude: " + zipLat + "Longitude: " + zipLon);
+        } else {
+            alert("Request failed.")
+        }
+    });
+    return [zipLat, zipLon];
+
+    
+}
 
 
 
