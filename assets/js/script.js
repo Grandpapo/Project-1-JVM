@@ -27,7 +27,7 @@ function initApp() {
                 keyword: 'beach'
             }
             const service = new google.maps.places.PlacesService(document.createElement('div')); // dummy element, since we don't want map
-            // use google maps API to search for beaches within a 30 km radius of user location, 
+            // nearbySearch request using Places API
             service.nearbySearch(request, callback);
             // grab latitude and longitude of all beach results from data output
             function callback(results, status) {
@@ -76,20 +76,9 @@ initApp();
 // if intermediate is clicked, display locations with 3-5ft wave height
 // if advanced is clicked, display locations with 6-11ft wave height
 
-//     let requestNOAAurl = 'https://api.weather.gov/points/' + userLat + ',' + userLon;
 
-//     fetch(requestNOAAurl)
-//         .then(function (response) {
-//             return response.json();
-//         })
-//         .then (function(data){
-//             console.log(data);
-//         });
-
-
-// // If user doesn't share location, they can enter zipcode
-// // turn zipcode into latitude and longitude
-
+// If user doesn't share location, they can enter zipcode
+// turn zipcode into latitude and longitude
 function getCoordsByZip(zipcode, callback) {
 
     var geocoder = new google.maps.Geocoder();
@@ -108,19 +97,20 @@ function getCoordsByZip(zipcode, callback) {
     });
 }
 
+// Use lat & lon from zipcode to find nearby beaches
 function findNearbyBeaches(zipcode) {
     getCoordsByZip(zipcode, function (coords) {
         if (coords) {
             const userLocation = new google.maps.LatLng(coords.latitude, coords.longitude);
-
+            // looking for beaches within 30km (30000 m)
             const request = {
                 location: userLocation,
                 radius: '30000',
                 keyword: 'beach'
             };
 
-            const service = new google.maps.places.PlacesService(document.createElement('div'));
-
+            const service = new google.maps.places.PlacesService(document.createElement('div')); // dummy element, since we don't want map
+            // nearbySearch request using Places API
             service.nearbySearch(request, function (results, status) {
                 if (status == google.maps.places.PlacesServiceStatus.OK) {
                     const beachLocations = results.map(place => ({
@@ -128,7 +118,7 @@ function findNearbyBeaches(zipcode) {
                         latitude: place.geometry.location.lat(),
                         longitude: place.geometry.location.lng()
                     }));
-                    console.log('Nearby Beaches:', beachLocations);
+                    console.log(beachLocations);
                 } else {
                     console.error('Nearby beach search failed with status' + status);
                 }
@@ -155,58 +145,23 @@ searchBtnEl.addEventListener('click', function (event) {
     event.preventDefault();
     var userInputZip = userInputEl.value;
     userInputEl.textContent = '';
-    getCoordsByZip(userInputZip);
     findNearbyBeaches(userInputZip);
-})
+});
 
 beginnerButtonEl.addEventListener('click', function (event) {
     event.preventDefault();
     buttonContainerEl.classList.add('hide'); // hide first screen
-    resultsEl.classList.remove('hide');
+    resultsEl.classList.remove('hide'); // show second screen
 });
 
 intermediateButtonEl.addEventListener('click', function (event) {
     event.preventDefault();
     buttonContainerEl.classList.add('hide'); // hide first screen
-    resultsEl.classList.remove('hide');
+    resultsEl.classList.remove('hide');// show second screen
 });
 
 advancedButtonEl.addEventListener('click', function (event) {
     event.preventDefault();
     buttonContainerEl.classList.add('hide'); // hide first screen
-    resultsEl.classList.remove('hide');
+    resultsEl.classList.remove('hide');// show second screen
 });
-
-// const googleKey = configGoogle.APIkey;
-// const requestUrlGoogle = 'https://maps.googleapis.com/maps/api/place/nearbysearch/json?&keyword=beach&location=' + userLocation + '&radius=1500&key=' + googleKey;
-
-
-
-// fetch(requestUrlGoogle)
-//     .then(function (response) {
-//         return response.json();
-//     })
-//     .then(function (data) {
-//         console.log(data);
-//     });
-//});
-
-
-
-
-// Use zipcode as location: 
-
-
-// Location recognition Url (to get list of entities given lat & long)
-
-
-
-
-
-// NOAA API setup
-
-//const noaaKey = configNOAA.APIkey;
-
-// request data from NOAA using user latitude and longitude
-
-// const requestUrlNOAA = 'https://api.weather.gov/points/' + userLat + ',' + userLon;
