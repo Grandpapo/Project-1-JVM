@@ -5,6 +5,4 @@
 // James Google:    APIkey: ''
 // Marcos Google:   APIkey: 'AIzaSyC4Sx_kPQXFiU2IbVNN5u_-fWrz4QICfv0'
 
-const configNOAA = {
-    APIkey: 'xeBPktZJHlPyrpDMigvqnwtFNOraRxnJ'
-}
+// World Weather APIkey: 
