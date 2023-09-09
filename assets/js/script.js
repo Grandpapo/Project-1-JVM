@@ -125,7 +125,8 @@ function findNearbyBeaches(zipcode) {
             console.error('Geocoding request failed.');
         }
     }
-)};
+    )
+};
 // times using 600-1800
 // Grab users location using HTML Geolocation API:
 function initApp() {
@@ -162,7 +163,7 @@ function initApp() {
                     location1El.textContent = beachLocations[0].name
                     location2El.textContent = beachLocations[1].name
                     location3El.textContent = beachLocations[2].name
-                    
+
                     // Grab place.latitude
                     // Grab place.longitude
                     // need to write if statement if (sigHeight_m > 0) {}
@@ -176,34 +177,38 @@ function initApp() {
                     // MENTAL NOTE: 1ft = 0.3048meters 2ft = 0.6096 
 
                     // input data from google places API into wwo API
-                    for (let i = 0; i < 3; i++) {
-                        var locationLat = beachLocations[i].latitude;
-                        var locationLon = beachLocations[i].longitude;
 
-                        let wwoAPIKey = '6d4a727b13e24cf7981194923230809'
-                        let requestWeatherOnline = 'https://api.worldweatheronline.com/premium/v1/marine.ashx?key=' + wwoAPIKey + '&format=json&q=' + locationLat + ',' + locationLon;
-                        // get corresponding data from wwo API for each beach location
-                        // hourly data, lets only get from 
-                        fetch(requestWeatherOnline)
-                            .then(function (response) {
-                                return response.json();
-                            })
-                            .then(function (data) {
-                                console.log(data);
-                            })
+                    var locationLat0 = beachLocations[0].latitude;
+                    var locationLon0 = beachLocations[0].longitude;
 
-                            // split up results into difficulty 1, 2 or 3 by wave height
-                            // pull beach name from google api
-                            // pull weather, wind and wave height from wwo API
-                            // if beginner button is clicked, display difficulty 1 results
-                            // if intermediate button is clicked, display difficulty 2 results
-                            // if advanced button is clicked, display difficulty 3 results
-                    };
+                    let wwoAPIKey = '6d4a727b13e24cf7981194923230809'
+                    let requestWeatherOnline = 'https://api.worldweatheronline.com/premium/v1/marine.ashx?key=' + wwoAPIKey + '&format=json&q=' + locationLat0 + ',' + locationLon0;
+                    // get corresponding data from wwo API for each beach location
+                    // hourly data, lets only get from 
+                    fetch(requestWeatherOnline)
+                        .then(function (response) {
+                            return response.json();
+                        })
+                        .then(function (data) {
+                            console.log(data);
+                            waveHeight06L1.textContent = 'Wave Height: ' + data.data.weather[0].hourly[2].sigHeight_m + ' m';
+                            weather06L1.textContent = 'Weather: ' + data.data.weather[0].hourly[2].tempF + ' °F';
+                            wind06L1.textContent =  'Wind: ' + data.data.weather[0].hourly[2].windspeedMiles + ' mph';
+
+                        })
+                    // split up results into difficulty 1, 2 or 3 by wave height
+                    // pull beach name from google api
+                    // pull weather, wind and wave height from wwo API
+                    // if beginner button is clicked, display difficulty 1 text
+                    // if intermediate button is clicked, display difficulty 2 text 
+                    // if advanced button is clicked, display difficulty 3 text
+
                 }
             }
         }
     }
-    )}
+    )
+}
 // Grab place.latitude
 // Grab place.longitude
 // need to write if statement if (sigHeight_m > 0) {}
