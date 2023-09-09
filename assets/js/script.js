@@ -8,53 +8,25 @@ let location1El = document.querySelector('.location-1');
 let location2El = document.querySelector('.location-2');
 let location3El = document.querySelector('.location-3');
 
-let waveHeight06L1 = document.querySelector('.wh06-location-1');
-let weather06L1 = document.querySelector('.wr06-location-1');
-let wind06L1 = document.querySelector('.wd06-location-1');
-let waveHeight09L1 = document.querySelector('.wh09-location-1');
-let weather09L1 = document.querySelector('.wr09-location-1');
-let wind09L1 = document.querySelector('.wd09-location-1');
-let waveHeight12L1 = document.querySelector('.wh12-location-1');
-let weather12L1 = document.querySelector('.wr12-location-1');
-let wind12L1 = document.querySelector('.wd12-location-1');
-let waveHeight3L1 = document.querySelector('.wh3-location-1');
-let weather3L1 = document.querySelector('.wr3-location-1');
-let wind3L1 = document.querySelector('.wd3-location-1');
-let waveHeight6L1 = document.querySelector('.wh6-location-1');
-let weather6L1 = document.querySelector('.wr6-location-1');
-let wind6L1 = document.querySelector('.wd6-location-1');
+let waveHeight = Array(3);
+let weather = Array(3);
+let wind = Array(3);
 
-let waveHeight06L2 = document.querySelector('.wh06-location-2');
-let weather06L2 = document.querySelector('.wr06-location-2');
-let wind06L2 = document.querySelector('.wd06-location-2');
-let waveHeight09L2 = document.querySelector('.wh09-location-2');
-let weather09L2 = document.querySelector('.wr09-location-2');
-let wind09L2 = document.querySelector('.wd09-location-2');
-let waveHeight12L2 = document.querySelector('.wh12-location-2');
-let weather12L2 = document.querySelector('.wr12-location-2');
-let wind12L2 = document.querySelector('.wd12-location-2');
-let waveHeight3L2 = document.querySelector('.wh3-location-2');
-let weather3L2 = document.querySelector('.wr3-location-2');
-let wind3L2 = document.querySelector('.wd3-location-2');
-let waveHeight6L2 = document.querySelector('.wh6-location-2');
-let weather6L2 = document.querySelector('.wr6-location-2');
-let wind6L2 = document.querySelector('.wd6-location-2');
+let maxwaveheight = 0;
+let minwaveheight = 0;
 
-let waveHeight06L3 = document.querySelector('.wh06-location-3');
-let weather06L3 = document.querySelector('.wr06-location-3');
-let wind06L3 = document.querySelector('.wd06-location-3');
-let waveHeight09L3 = document.querySelector('.wh09-location-3');
-let weather09L3 = document.querySelector('.wr09-location-3');
-let wind09L3 = document.querySelector('.wd09-location-3');
-let waveHeight12L3 = document.querySelector('.wh12-location-3');
-let weather12L3 = document.querySelector('.wr12-location-3');
-let wind12L3 = document.querySelector('.wd12-location-3');
-let waveHeight3L3 = document.querySelector('.wh3-location-3');
-let weather3L3 = document.querySelector('.wr3-location-3');
-let wind3L3 = document.querySelector('.wd3-location-3');
-let waveHeight6L3 = document.querySelector('.wh6-location-3');
-let weather6L3 = document.querySelector('.wr6-location-3');
-let wind6L3 = document.querySelector('.wd6-location-3');
+
+waveHeight[0] = document.querySelector('.wh06-location-1');
+weather[0] = document.querySelector('.wr06-location-1');
+wind[0] = document.querySelector('.wd06-location-1');
+
+waveHeight[1] = document.querySelector('.wh06-location-2');
+weather[1] = document.querySelector('.wr06-location-2');
+wind[1] = document.querySelector('.wd06-location-2');
+
+waveHeight[2] = document.querySelector('.wh06-location-3');
+weather[2] = document.querySelector('.wr06-location-3');
+wind[2] = document.querySelector('.wd06-location-3');
 
 // once lat and lon are retrieved from google api, input the coords into the Weather API to grab wave height, weather and wind
 // forEach item that is returned from google, run through Weather API
@@ -160,9 +132,7 @@ function initApp() {
                         longitude: place.geometry.location.lng()
                     }));
                     console.log(beachLocations);
-                    location1El.textContent = beachLocations[0].name
-                    location2El.textContent = beachLocations[1].name
-                    location3El.textContent = beachLocations[2].name
+
 
                     // Grab place.latitude
                     // Grab place.longitude
@@ -191,9 +161,21 @@ function initApp() {
                         })
                         .then(function (data) {
                             console.log(data);
-                            waveHeight06L1.textContent = 'Wave Height: ' + data.data.weather[0].hourly[2].sigHeight_m + ' m';
-                            weather06L1.textContent = 'Weather: ' + data.data.weather[0].hourly[2].tempF + ' °F';
-                            wind06L1.textContent =  'Wind: ' + data.data.weather[0].hourly[2].windspeedMiles + ' mph';
+
+                            //Choosing Beaches goes right Here.
+
+                            //location1El.textContent = beachLocations[0].name
+                            //location2El.textContent = beachLocations[1].name
+                            //location3El.textContent = beachLocations[2].name
+                            places = 0;
+                            for (let i = 0; i < 20 && places < 3; i++) {
+                                if (minwaveheight <= data.data.weather[0].hourly[3].sigHeight_m && maxwaveheight >=  data.data.weather[0].hourly[3].sigHeight_m) {
+                                    waveHeight[places].textContent = 'Wave Height: ' + data.data.weather[0].hourly[3].sigHeight_m + ' m';
+                                    weather[places].textContent = 'Weather: ' + data.data.weather[0].hourly[3].tempF + ' °F';
+                                    wind[places].textContent = 'Wind: ' + data.data.weather[0].hourly[3].windspeedMiles + ' mph';
+                                    places++;
+                                }
+                            }
 
                         })
                     // split up results into difficulty 1, 2 or 3 by wave height
@@ -246,6 +228,9 @@ function initApp() {
 beginnerButtonEl.addEventListener('click', function (event) {
     event.preventDefault();
     console.log(userInputEl.value);
+    maxwaveheight = 2;
+    minwaveheight = 0.1;
+
     if (userInputEl.value !== '') {
         var userInputZip = userInputEl.value;
         userInputEl.textContent = '';
@@ -261,6 +246,8 @@ beginnerButtonEl.addEventListener('click', function (event) {
 intermediateButtonEl.addEventListener('click', function (event) {
     event.preventDefault();
     console.log(userInputEl.value);
+    maxwaveheight = 5;
+    minwaveheight = 2;
     if (userInputEl.value !== '') {
         var userInputZip = userInputEl.value;
         userInputEl.textContent = '';
@@ -275,6 +262,8 @@ intermediateButtonEl.addEventListener('click', function (event) {
 advancedButtonEl.addEventListener('click', function (event) {
     event.preventDefault();
     console.log(userInputEl.value);
+    maxwaveheight = 11;
+    minwaveheight = 4;
     if (userInputEl.value !== '') {
         var userInputZip = userInputEl.value;
         userInputEl.textContent = '';
