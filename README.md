@@ -38,3 +38,8 @@ NOAA - for ocean weather and wave info
 	-water temperature (info purposes)
 Google Maps - for showing distance from current location to beaches
 
+
+---
+##Link to Website:
+---
+https://marcos-wang.github.io/Project-1-JVM/
