@@ -40,6 +40,6 @@ Google Maps - for showing distance from current location to beaches
 
 
 ---
-##Link to Website:
+## Link to Website:
 ---
 https://marcos-wang.github.io/Project-1-JVM/
