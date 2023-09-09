@@ -181,11 +181,11 @@ function initApp() {
                     var locationLat0 = beachLocations[0].latitude;
                     var locationLon0 = beachLocations[0].longitude;
 
-                    let wwoAPIKey = '6d4a727b13e24cf7981194923230809'
-                    let requestWeatherOnline = 'https://api.worldweatheronline.com/premium/v1/marine.ashx?key=' + wwoAPIKey + '&format=json&q=' + locationLat0 + ',' + locationLon0;
+                    let wwoAPIKey = 'f4799e0f512945df87a201101230909'
+                    let requestWeatherOnline0 = 'https://api.worldweatheronline.com/premium/v1/marine.ashx?key=' + wwoAPIKey + '&format=json&q=' + locationLat0 + ',' + locationLon0;
                     // get corresponding data from wwo API for each beach location
                     // hourly data, lets only get from 
-                    fetch(requestWeatherOnline)
+                    fetch(requestWeatherOnline0)
                         .then(function (response) {
                             return response.json();
                         })
@@ -195,7 +195,43 @@ function initApp() {
                             weather06L1.textContent = 'Weather: ' + data.data.weather[0].hourly[2].tempF + ' °F';
                             wind06L1.textContent =  'Wind: ' + data.data.weather[0].hourly[2].windspeedMiles + ' mph';
 
+                        });
+
+                    var locationLat1 = beachLocations[1].latitude;
+                    var locationLon1 = beachLocations[1].longitude;
+
+                    let requestWeatherOnline1 = 'https://api.worldweatheronline.com/premium/v1/marine.ashx?key=' + wwoAPIKey + '&format=json&q=' + locationLat1 + ',' + locationLon1;
+                    // get corresponding data from wwo API for each beach location
+                    // hourly data, lets only get from 
+                    fetch(requestWeatherOnline1)
+                        .then(function (response) {
+                            return response.json();
                         })
+                        .then(function (data) {
+                            console.log(data);
+                            waveHeight06L2.textContent = 'Wave Height: ' + data.data.weather[1].hourly[2].sigHeight_m + ' m';
+                            weather06L2.textContent = 'Weather: ' + data.data.weather[1].hourly[2].tempF + ' °F';
+                            wind06L2.textContent =  'Wind: ' + data.data.weather[1].hourly[2].windspeedMiles + ' mph';
+
+                        });
+
+                    var locationLat2 = beachLocations[2].latitude;
+                    var locationLon2 = beachLocations[2].longitude;
+
+                    let requestWeatherOnline2 = 'https://api.worldweatheronline.com/premium/v1/marine.ashx?key=' + wwoAPIKey + '&format=json&q=' + locationLat2 + ',' + locationLon2;
+                    // get corresponding data from wwo API for each beach location
+                    // hourly data, lets only get from 
+                    fetch(requestWeatherOnline2)
+                        .then(function (response) {
+                            return response.json();
+                        })
+                        .then(function (data) {
+                            console.log(data);
+                            waveHeight06L3.textContent = 'Wave Height: ' + data.data.weather[2].hourly[2].sigHeight_m + ' m';
+                            weather06L3.textContent = 'Weather: ' + data.data.weather[2].hourly[2].tempF + ' °F';
+                            wind06L3.textContent =  'Wind: ' + data.data.weather[2].hourly[2].windspeedMiles + ' mph';
+
+                        });
                     // split up results into difficulty 1, 2 or 3 by wave height
                     // pull beach name from google api
                     // pull weather, wind and wave height from wwo API
