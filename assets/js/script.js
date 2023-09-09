@@ -52,6 +52,20 @@ function findNearbyBeaches(zipcode) {
                         longitude: place.geometry.location.lng()
                     }));
                     console.log(beachLocations);
+
+                    for (let i = 0; i < beachLocations.length; i++) {
+                        var locationLat = beachLocations[i].latitude;
+                        var locationLon = beachLocations[i].longitude;
+                        let wwoAPIKey = '6d4a727b13e24cf7981194923230809'
+                        let requestWeatherOnline = 'https://api.worldweatheronline.com/premium/v1/marine.ashx?key=' + wwoAPIKey + '&format=json&q=' + locationLat + ',' + locationLon;
+                        fetch(requestWeatherOnline)
+                            .then(function (response) {
+                                return response.json();
+                            })
+                            .then(function (data) {
+                                console.log(data);
+                            })
+                    };
                 } else {
                     console.error('Nearby beach search failed with status' + status);
                 }
@@ -59,9 +73,9 @@ function findNearbyBeaches(zipcode) {
         } else {
             console.error('Geocoding request failed.');
         }
-    });
-}
-
+    }
+)};
+// times using 600-1800
 // Grab users location using HTML Geolocation API:
 function initApp() {
     navigator.geolocation.getCurrentPosition(function (position) {
@@ -130,12 +144,25 @@ function initApp() {
                             // if beginner button is clicked, display difficulty 1 results
                             // if intermediate button is clicked, display difficulty 2 results
                             // if advanced button is clicked, display difficulty 3 results
-                    }
+                    };
                 }
             }
         }
-    });
-}
+    }
+    )}
+// Grab place.latitude
+// Grab place.longitude
+// need to write if statement if (sigHeight_m > 0) {}
+// Want to grab the first 5 locations IF it is truthy
+// if (difficulty == 1) Then set maxwaveheight = 2ft
+// if (difficulty == 2) then set maxwaveheight = 5ft
+// if (difficulty == 3) then set maxwaveheight = 11ft
+// if (difficulty == 1) Then set minwaveheight = 1ft
+// if (difficulty == 2) then set minwaveheight = 3ft
+// if (difficulty == 3) then set minwaveheight = 11ft
+// MENTAL NOTE: 1ft = 0.3048meters 2ft = 0.6096 
+// console.log(locationLat);
+// console.log(locationLon);
 
 
 // let tempLat = 0;
