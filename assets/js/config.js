@@ -5,4 +5,4 @@
 // James Google:    APIkey: ''
 // Marcos Google:   APIkey: 'AIzaSyC4Sx_kPQXFiU2IbVNN5u_-fWrz4QICfv0'
 
-// World Weather APIkey: 
+// World Weather APIkey: 6d4a727b13e24cf7981194923230809
