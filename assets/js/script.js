@@ -4,6 +4,57 @@ let advancedButtonEl = document.querySelector('.advanced-btn');
 let buttonContainerEl = document.querySelector('.button-container');
 let resultsEl = document.querySelector('.results');
 let userInputEl = document.querySelector('#user-input');
+let location1El = document.querySelector('.location-1');
+let location2El = document.querySelector('.location-2');
+let location3El = document.querySelector('.location-3');
+
+let waveHeight06L1 = document.querySelector('.wh06-location-1');
+let weather06L1 = document.querySelector('.wr06-location-1');
+let wind06L1 = document.querySelector('.wd06-location-1');
+let waveHeight09L1 = document.querySelector('.wh09-location-1');
+let weather09L1 = document.querySelector('.wr09-location-1');
+let wind09L1 = document.querySelector('.wd09-location-1');
+let waveHeight12L1 = document.querySelector('.wh12-location-1');
+let weather12L1 = document.querySelector('.wr12-location-1');
+let wind12L1 = document.querySelector('.wd12-location-1');
+let waveHeight3L1 = document.querySelector('.wh3-location-1');
+let weather3L1 = document.querySelector('.wr3-location-1');
+let wind3L1 = document.querySelector('.wd3-location-1');
+let waveHeight6L1 = document.querySelector('.wh6-location-1');
+let weather6L1 = document.querySelector('.wr6-location-1');
+let wind6L1 = document.querySelector('.wd6-location-1');
+
+let waveHeight06L2 = document.querySelector('.wh06-location-2');
+let weather06L2 = document.querySelector('.wr06-location-2');
+let wind06L2 = document.querySelector('.wd06-location-2');
+let waveHeight09L2 = document.querySelector('.wh09-location-2');
+let weather09L2 = document.querySelector('.wr09-location-2');
+let wind09L2 = document.querySelector('.wd09-location-2');
+let waveHeight12L2 = document.querySelector('.wh12-location-2');
+let weather12L2 = document.querySelector('.wr12-location-2');
+let wind12L2 = document.querySelector('.wd12-location-2');
+let waveHeight3L2 = document.querySelector('.wh3-location-2');
+let weather3L2 = document.querySelector('.wr3-location-2');
+let wind3L2 = document.querySelector('.wd3-location-2');
+let waveHeight6L2 = document.querySelector('.wh6-location-2');
+let weather6L2 = document.querySelector('.wr6-location-2');
+let wind6L2 = document.querySelector('.wd6-location-2');
+
+let waveHeight06L3 = document.querySelector('.wh06-location-3');
+let weather06L3 = document.querySelector('.wr06-location-3');
+let wind06L3 = document.querySelector('.wd06-location-3');
+let waveHeight09L3 = document.querySelector('.wh09-location-3');
+let weather09L3 = document.querySelector('.wr09-location-3');
+let wind09L3 = document.querySelector('.wd09-location-3');
+let waveHeight12L3 = document.querySelector('.wh12-location-3');
+let weather12L3 = document.querySelector('.wr12-location-3');
+let wind12L3 = document.querySelector('.wd12-location-3');
+let waveHeight3L3 = document.querySelector('.wh3-location-3');
+let weather3L3 = document.querySelector('.wr3-location-3');
+let wind3L3 = document.querySelector('.wd3-location-3');
+let waveHeight6L3 = document.querySelector('.wh6-location-3');
+let weather6L3 = document.querySelector('.wr6-location-3');
+let wind6L3 = document.querySelector('.wd6-location-3');
 
 // once lat and lon are retrieved from google api, input the coords into the Weather API to grab wave height, weather and wind
 // forEach item that is returned from google, run through Weather API
@@ -53,7 +104,7 @@ function findNearbyBeaches(zipcode) {
                     }));
                     console.log(beachLocations);
 
-                    for (let i = 0; i < beachLocations.length; i++) {
+                    for (let i = 0; i < 3; i++) {
                         var locationLat = beachLocations[i].latitude;
                         var locationLon = beachLocations[i].longitude;
                         let wwoAPIKey = '6d4a727b13e24cf7981194923230809'
@@ -108,7 +159,10 @@ function initApp() {
                         longitude: place.geometry.location.lng()
                     }));
                     console.log(beachLocations);
-
+                    location1El.textContent = beachLocations[0].name
+                    location2El.textContent = beachLocations[1].name
+                    location3El.textContent = beachLocations[2].name
+                    
                     // Grab place.latitude
                     // Grab place.longitude
                     // need to write if statement if (sigHeight_m > 0) {}
@@ -122,7 +176,7 @@ function initApp() {
                     // MENTAL NOTE: 1ft = 0.3048meters 2ft = 0.6096 
 
                     // input data from google places API into wwo API
-                    for (let i = 0; i < beachLocations.length; i++) {
+                    for (let i = 0; i < 3; i++) {
                         var locationLat = beachLocations[i].latitude;
                         var locationLon = beachLocations[i].longitude;
 
@@ -177,6 +231,8 @@ function initApp() {
 //         console.log(data);
 //     })
 
+// Once name is entered, input is saved and used to update text content of title ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+// text content saved in local storage, and persists upon reload ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
 // If a zip code is entered, and a skill level is clicked, load in second screen and information for beaches
