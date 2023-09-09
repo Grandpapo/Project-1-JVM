@@ -24,6 +24,101 @@ header {
   max-width: 185px;
 }
 
+strong {
+  font-weight: 800;
+}
+
+
+.location-1-6am {
+  max-width: 65%;
+  margin: auto;
+  margin-bottom: 25px;
+}
+
+.location-1-9am {
+  max-width: 65%;
+  margin: auto;
+  margin-bottom: 25px;
+}
+
+.location-1-12pm {
+  max-width: 65%;
+  margin: auto;
+  margin-bottom: 25px;
+}
+
+.location-1-3pm {
+  max-width: 65%;
+  margin: auto;
+  margin-bottom: 25px;
+}
+
+.location-1-6pm {
+  max-width: 65%;
+  margin: auto;
+  margin-bottom: 25px;
+}
+
+.location-2-6am {
+  max-width: 65%;
+  margin: auto;
+  margin-bottom: 25px;
+}
+
+.location-2-9am {
+  max-width: 65%;
+  margin: auto;
+  margin-bottom: 25px;
+}
+
+.location-2-12pm {
+  max-width: 65%;
+  margin: auto;
+  margin-bottom: 25px;
+}
+
+.location-2-3pm {
+  max-width: 65%;
+  margin: auto;
+  margin-bottom: 25px;
+}
+
+.location-2-6pm {
+  max-width: 65%;
+  margin: auto;
+  margin-bottom: 25px;
+}
+
+.location-3-6am {
+  max-width: 65%;
+  margin: auto;
+  margin-bottom: 25px;
+}
+
+.location-3-9am {
+  max-width: 65%;
+  margin: auto;
+  margin-bottom: 25px;
+}
+
+.location-3-12pm {
+  max-width: 65%;
+  margin: auto;
+  margin-bottom: 25px;
+}
+
+.location-3-3pm {
+  max-width: 65%;
+  margin: auto;
+  margin-bottom: 25px;
+}
+
+.location-3-6pm {
+  max-width: 65%;
+  margin: auto;
+  margin-bottom: 25px;
+}
+
 .hide {
   display:none;
 }
