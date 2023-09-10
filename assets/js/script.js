@@ -62,12 +62,6 @@ let waveHeight6L3 = document.querySelector('.wh6-location-3');
 let weather6L3 = document.querySelector('.wr6-location-3');
 let wind6L3 = document.querySelector('.wd6-location-3');
 
-// once lat and lon are retrieved from google api, input the coords into the Weather API to grab wave height, weather and wind
-// forEach item that is returned from google, run through Weather API
-// if beginner is clicked, display locations with 1-2ft wave height
-// if intermediate is clicked, display locations with 3-5ft wave height
-// if advanced is clicked, display locations with 6-11ft wave height
-
 // Once user enters zipcode, grab lat and lon related to zipcode using google geocoder API
 function getCoordsByZip(zipcode, callback) {
 
@@ -128,19 +122,19 @@ function findNearbyBeaches(zipcode) {
                             console.log(data);
                             waveHeight06L1.textContent = 'Wave Height: ' + Math.round(data.data.weather[0].hourly[2].sigHeight_m * 3.28084) + ' ft';
                             weather06L1.textContent = 'Weather: ' + data.data.weather[0].hourly[2].tempF + ' °F';
-                            wind06L1.textContent =  'Wind: ' + data.data.weather[0].hourly[2].windspeedMiles + ' mph';
+                            wind06L1.textContent = 'Wind: ' + data.data.weather[0].hourly[2].windspeedMiles + ' mph';
                             waveHeight09L1.textContent = 'Wave Height: ' + Math.round(data.data.weather[0].hourly[3].sigHeight_m * 3.28084) + ' ft';
                             weather09L1.textContent = 'Weather: ' + data.data.weather[0].hourly[3].tempF + ' °F';
-                            wind09L1.textContent =  'Wind: ' + data.data.weather[0].hourly[3].windspeedMiles + ' mph';
+                            wind09L1.textContent = 'Wind: ' + data.data.weather[0].hourly[3].windspeedMiles + ' mph';
                             waveHeight12L1.textContent = 'Wave Height: ' + Math.round(data.data.weather[0].hourly[4].sigHeight_m * 3.28084) + ' ft';
                             weather12L1.textContent = 'Weather: ' + data.data.weather[0].hourly[4].tempF + ' °F';
-                            wind12L1.textContent =  'Wind: ' + data.data.weather[0].hourly[4].windspeedMiles + ' mph';
+                            wind12L1.textContent = 'Wind: ' + data.data.weather[0].hourly[4].windspeedMiles + ' mph';
                             waveHeight3L1.textContent = 'Wave Height: ' + Math.round(data.data.weather[0].hourly[5].sigHeight_m * 3.28084) + ' ft';
                             weather3L1.textContent = 'Weather: ' + data.data.weather[0].hourly[5].tempF + ' °F';
-                            wind3L1.textContent =  'Wind: ' + data.data.weather[0].hourly[5].windspeedMiles + ' mph';
+                            wind3L1.textContent = 'Wind: ' + data.data.weather[0].hourly[5].windspeedMiles + ' mph';
                             waveHeight6L1.textContent = 'Wave Height: ' + Math.round(data.data.weather[0].hourly[6].sigHeight_m * 3.28084) + ' ft';
                             weather6L1.textContent = 'Weather: ' + data.data.weather[0].hourly[6].tempF + ' °F';
-                            wind6L1.textContent =  'Wind: ' + data.data.weather[0].hourly[6].windspeedMiles + ' mph';
+                            wind6L1.textContent = 'Wind: ' + data.data.weather[0].hourly[6].windspeedMiles + ' mph';
                         });
 
                     var locationLat1 = beachLocations[1].latitude;
@@ -157,20 +151,19 @@ function findNearbyBeaches(zipcode) {
                             console.log(data);
                             waveHeight06L2.textContent = 'Wave Height: ' + Math.round(data.data.weather[1].hourly[2].sigHeight_m * 3.28084) + ' ft';
                             weather06L2.textContent = 'Weather: ' + data.data.weather[1].hourly[2].tempF + ' °F';
-                            wind06L2.textContent =  'Wind: ' + data.data.weather[1].hourly[2].windspeedMiles + ' mph';
+                            wind06L2.textContent = 'Wind: ' + data.data.weather[1].hourly[2].windspeedMiles + ' mph';
                             waveHeight09L2.textContent = 'Wave Height: ' + Math.round(data.data.weather[1].hourly[3].sigHeight_m * 3.28084) + ' ft';
                             weather09L2.textContent = 'Weather: ' + data.data.weather[1].hourly[3].tempF + ' °F';
-                            wind09L2.textContent =  'Wind: ' + data.data.weather[1].hourly[3].windspeedMiles + ' mph';
+                            wind09L2.textContent = 'Wind: ' + data.data.weather[1].hourly[3].windspeedMiles + ' mph';
                             waveHeight12L2.textContent = 'Wave Height: ' + Math.round(data.data.weather[1].hourly[4].sigHeight_m * 3.28084) + ' ft';
                             weather12L2.textContent = 'Weather: ' + data.data.weather[1].hourly[4].tempF + ' °F';
-                            wind12L2.textContent =  'Wind: ' + data.data.weather[1].hourly[4].windspeedMiles + ' mph';
+                            wind12L2.textContent = 'Wind: ' + data.data.weather[1].hourly[4].windspeedMiles + ' mph';
                             waveHeight3L2.textContent = 'Wave Height: ' + Math.round(data.data.weather[1].hourly[5].sigHeight_m * 3.28084) + ' ft';
                             weather3L2.textContent = 'Weather: ' + data.data.weather[1].hourly[5].tempF + ' °F';
-                            wind3L2.textContent =  'Wind: ' + data.data.weather[1].hourly[5].windspeedMiles + ' mph';
+                            wind3L2.textContent = 'Wind: ' + data.data.weather[1].hourly[5].windspeedMiles + ' mph';
                             waveHeight6L2.textContent = 'Wave Height: ' + Math.round(data.data.weather[1].hourly[6].sigHeight_m * 3.28084) + ' ft';
                             weather6L2.textContent = 'Weather: ' + data.data.weather[1].hourly[6].tempF + ' °F';
-                            wind6L2.textContent =  'Wind: ' + data.data.weather[1].hourly[6].windspeedMiles + ' mph';
-
+                            wind6L2.textContent = 'Wind: ' + data.data.weather[1].hourly[6].windspeedMiles + ' mph';
                         });
 
                     var locationLat2 = beachLocations[2].latitude;
@@ -187,20 +180,19 @@ function findNearbyBeaches(zipcode) {
                             console.log(data);
                             waveHeight06L3.textContent = 'Wave Height: ' + Math.round(data.data.weather[2].hourly[2].sigHeight_m * 3.28084) + ' ft';
                             weather06L3.textContent = 'Weather: ' + data.data.weather[2].hourly[2].tempF + ' °F';
-                            wind06L3.textContent =  'Wind: ' + data.data.weather[2].hourly[2].windspeedMiles + ' mph';
+                            wind06L3.textContent = 'Wind: ' + data.data.weather[2].hourly[2].windspeedMiles + ' mph';
                             waveHeight09L3.textContent = 'Wave Height: ' + Math.round(data.data.weather[2].hourly[3].sigHeight_m * 3.28084) + ' ft';
                             weather09L3.textContent = 'Weather: ' + data.data.weather[2].hourly[3].tempF + ' °F';
-                            wind09L3.textContent =  'Wind: ' + data.data.weather[2].hourly[3].windspeedMiles + ' mph';
+                            wind09L3.textContent = 'Wind: ' + data.data.weather[2].hourly[3].windspeedMiles + ' mph';
                             waveHeight12L3.textContent = 'Wave Height: ' + Math.round(data.data.weather[2].hourly[4].sigHeight_m * 3.28084) + ' ft';
                             weather12L3.textContent = 'Weather: ' + data.data.weather[2].hourly[4].tempF + ' °F';
-                            wind12L3.textContent =  'Wind: ' + data.data.weather[2].hourly[4].windspeedMiles + ' mph';
+                            wind12L3.textContent = 'Wind: ' + data.data.weather[2].hourly[4].windspeedMiles + ' mph';
                             waveHeight3L3.textContent = 'Wave Height: ' + Math.round(data.data.weather[2].hourly[5].sigHeight_m * 3.28084) + ' ft';
                             weather3L3.textContent = 'Weather: ' + data.data.weather[2].hourly[5].tempF + ' °F';
-                            wind3L3.textContent =  'Wind: ' + data.data.weather[2].hourly[5].windspeedMiles + ' mph';
+                            wind3L3.textContent = 'Wind: ' + data.data.weather[2].hourly[5].windspeedMiles + ' mph';
                             waveHeight6L3.textContent = 'Wave Height: ' + Math.round(data.data.weather[2].hourly[6].sigHeight_m * 3.28084) + ' ft';
                             weather6L3.textContent = 'Weather: ' + data.data.weather[2].hourly[6].tempF + ' °F';
-                            wind6L3.textContent =  'Wind: ' + data.data.weather[2].hourly[6].windspeedMiles + ' mph';
-
+                            wind6L3.textContent = 'Wind: ' + data.data.weather[2].hourly[6].windspeedMiles + ' mph';
                         });
                 } else {
                     console.error('Nearby beach search failed with status' + status);
@@ -267,19 +259,19 @@ function initApp() {
                             console.log(data);
                             waveHeight06L1.textContent = 'Wave Height: ' + Math.round(data.data.weather[0].hourly[2].sigHeight_m * 3.28084) + ' ft';
                             weather06L1.textContent = 'Weather: ' + data.data.weather[0].hourly[2].tempF + ' °F';
-                            wind06L1.textContent =  'Wind: ' + data.data.weather[0].hourly[2].windspeedMiles + ' mph';
+                            wind06L1.textContent = 'Wind: ' + data.data.weather[0].hourly[2].windspeedMiles + ' mph';
                             waveHeight09L1.textContent = 'Wave Height: ' + Math.round(data.data.weather[0].hourly[3].sigHeight_m * 3.28084) + ' ft';
                             weather09L1.textContent = 'Weather: ' + data.data.weather[0].hourly[3].tempF + ' °F';
-                            wind09L1.textContent =  'Wind: ' + data.data.weather[0].hourly[3].windspeedMiles + ' mph';
+                            wind09L1.textContent = 'Wind: ' + data.data.weather[0].hourly[3].windspeedMiles + ' mph';
                             waveHeight12L1.textContent = 'Wave Height: ' + Math.round(data.data.weather[0].hourly[4].sigHeight_m * 3.28084) + ' ft';
                             weather12L1.textContent = 'Weather: ' + data.data.weather[0].hourly[4].tempF + ' °F';
-                            wind12L1.textContent =  'Wind: ' + data.data.weather[0].hourly[4].windspeedMiles + ' mph';
+                            wind12L1.textContent = 'Wind: ' + data.data.weather[0].hourly[4].windspeedMiles + ' mph';
                             waveHeight3L1.textContent = 'Wave Height: ' + Math.round(data.data.weather[0].hourly[5].sigHeight_m * 3.28084) + ' ft';
                             weather3L1.textContent = 'Weather: ' + data.data.weather[0].hourly[5].tempF + ' °F';
-                            wind3L1.textContent =  'Wind: ' + data.data.weather[0].hourly[5].windspeedMiles + ' mph';
+                            wind3L1.textContent = 'Wind: ' + data.data.weather[0].hourly[5].windspeedMiles + ' mph';
                             waveHeight6L1.textContent = 'Wave Height: ' + Math.round(data.data.weather[0].hourly[6].sigHeight_m * 3.28084) + ' ft';
                             weather6L1.textContent = 'Weather: ' + data.data.weather[0].hourly[6].tempF + ' °F';
-                            wind6L1.textContent =  'Wind: ' + data.data.weather[0].hourly[6].windspeedMiles + ' mph';
+                            wind6L1.textContent = 'Wind: ' + data.data.weather[0].hourly[6].windspeedMiles + ' mph';
                         });
 
                     var locationLat1 = beachLocations[1].latitude;
@@ -296,20 +288,19 @@ function initApp() {
                             console.log(data);
                             waveHeight06L2.textContent = 'Wave Height: ' + Math.round(data.data.weather[1].hourly[2].sigHeight_m * 3.28084) + ' ft';
                             weather06L2.textContent = 'Weather: ' + data.data.weather[1].hourly[2].tempF + ' °F';
-                            wind06L2.textContent =  'Wind: ' + data.data.weather[1].hourly[2].windspeedMiles + ' mph';
+                            wind06L2.textContent = 'Wind: ' + data.data.weather[1].hourly[2].windspeedMiles + ' mph';
                             waveHeight09L2.textContent = 'Wave Height: ' + Math.round(data.data.weather[1].hourly[3].sigHeight_m * 3.28084) + ' ft';
                             weather09L2.textContent = 'Weather: ' + data.data.weather[1].hourly[3].tempF + ' °F';
-                            wind09L2.textContent =  'Wind: ' + data.data.weather[1].hourly[3].windspeedMiles + ' mph';
+                            wind09L2.textContent = 'Wind: ' + data.data.weather[1].hourly[3].windspeedMiles + ' mph';
                             waveHeight12L2.textContent = 'Wave Height: ' + Math.round(data.data.weather[1].hourly[4].sigHeight_m * 3.28084) + ' ft';
                             weather12L2.textContent = 'Weather: ' + data.data.weather[1].hourly[4].tempF + ' °F';
-                            wind12L2.textContent =  'Wind: ' + data.data.weather[1].hourly[4].windspeedMiles + ' mph';
+                            wind12L2.textContent = 'Wind: ' + data.data.weather[1].hourly[4].windspeedMiles + ' mph';
                             waveHeight3L2.textContent = 'Wave Height: ' + Math.round(data.data.weather[1].hourly[5].sigHeight_m * 3.28084) + ' ft';
                             weather3L2.textContent = 'Weather: ' + data.data.weather[1].hourly[5].tempF + ' °F';
-                            wind3L2.textContent =  'Wind: ' + data.data.weather[1].hourly[5].windspeedMiles + ' mph';
+                            wind3L2.textContent = 'Wind: ' + data.data.weather[1].hourly[5].windspeedMiles + ' mph';
                             waveHeight6L2.textContent = 'Wave Height: ' + Math.round(data.data.weather[1].hourly[6].sigHeight_m * 3.28084) + ' ft';
                             weather6L2.textContent = 'Weather: ' + data.data.weather[1].hourly[6].tempF + ' °F';
-                            wind6L2.textContent =  'Wind: ' + data.data.weather[1].hourly[6].windspeedMiles + ' mph';
-
+                            wind6L2.textContent = 'Wind: ' + data.data.weather[1].hourly[6].windspeedMiles + ' mph';
                         });
 
                     var locationLat2 = beachLocations[2].latitude;
@@ -326,28 +317,20 @@ function initApp() {
                             console.log(data);
                             waveHeight06L3.textContent = 'Wave Height: ' + Math.round(data.data.weather[2].hourly[2].sigHeight_m * 3.28084) + ' ft';
                             weather06L3.textContent = 'Weather: ' + data.data.weather[2].hourly[2].tempF + ' °F';
-                            wind06L3.textContent =  'Wind: ' + data.data.weather[2].hourly[2].windspeedMiles + ' mph';
+                            wind06L3.textContent = 'Wind: ' + data.data.weather[2].hourly[2].windspeedMiles + ' mph';
                             waveHeight09L3.textContent = 'Wave Height: ' + Math.round(data.data.weather[2].hourly[3].sigHeight_m * 3.28084) + ' ft';
                             weather09L3.textContent = 'Weather: ' + data.data.weather[2].hourly[3].tempF + ' °F';
-                            wind09L3.textContent =  'Wind: ' + data.data.weather[2].hourly[3].windspeedMiles + ' mph';
+                            wind09L3.textContent = 'Wind: ' + data.data.weather[2].hourly[3].windspeedMiles + ' mph';
                             waveHeight12L3.textContent = 'Wave Height: ' + Math.round(data.data.weather[2].hourly[4].sigHeight_m * 3.28084) + ' ft';
                             weather12L3.textContent = 'Weather: ' + data.data.weather[2].hourly[4].tempF + ' °F';
-                            wind12L3.textContent =  'Wind: ' + data.data.weather[2].hourly[4].windspeedMiles + ' mph';
+                            wind12L3.textContent = 'Wind: ' + data.data.weather[2].hourly[4].windspeedMiles + ' mph';
                             waveHeight3L3.textContent = 'Wave Height: ' + Math.round(data.data.weather[2].hourly[5].sigHeight_m * 3.28084) + ' ft';
                             weather3L3.textContent = 'Weather: ' + data.data.weather[2].hourly[5].tempF + ' °F';
-                            wind3L3.textContent =  'Wind: ' + data.data.weather[2].hourly[5].windspeedMiles + ' mph';
+                            wind3L3.textContent = 'Wind: ' + data.data.weather[2].hourly[5].windspeedMiles + ' mph';
                             waveHeight6L3.textContent = 'Wave Height: ' + Math.round(data.data.weather[2].hourly[6].sigHeight_m * 3.28084) + ' ft';
                             weather6L3.textContent = 'Weather: ' + data.data.weather[2].hourly[6].tempF + ' °F';
-                            wind6L3.textContent =  'Wind: ' + data.data.weather[2].hourly[6].windspeedMiles + ' mph';
-
+                            wind6L3.textContent = 'Wind: ' + data.data.weather[2].hourly[6].windspeedMiles + ' mph';
                         });
-                    // split up results into difficulty 1, 2 or 3 by wave height
-                    // pull beach name from google api
-                    // pull weather, wind and wave height from wwo API
-                    // if beginner button is clicked, display difficulty 1 text
-                    // if intermediate button is clicked, display difficulty 2 text 
-                    // if advanced button is clicked, display difficulty 3 text
-
                 }
             }
         }
