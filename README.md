@@ -41,10 +41,15 @@ https://marcos-wang.github.io/Project-1-JVM/
 ## Technologies Used
 
 HTML
+
 CSS Framework: Bulma
+
 JavaScript
+
 Google - Places API
+
 Google - Geocoding API
+
 World Weather Online - Weather API
 
 ## Credits
