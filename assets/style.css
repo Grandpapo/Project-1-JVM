@@ -17,6 +17,14 @@ header {
   font-family: 'Original Surfer', cursive;
 }
 
+p {
+  max-width: 65%;
+  margin: auto;
+  margin-bottom: 25px;
+  text-align: center;
+  color: white;
+}
+
 strong {
   font-weight: 800;
 }

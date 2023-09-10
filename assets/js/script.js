@@ -350,6 +350,7 @@ if (savedNameForm) {
 userNameFormEl.addEventListener('submit', function (event) {
     event.preventDefault();
     let savedName = userNameEl.value;
+    localStorage.removeItem('name');
     userNameHeader.textContent = 'Surf Planner for ' + userNameEl.value;
     localStorage.setItem('name', savedName);
 });
