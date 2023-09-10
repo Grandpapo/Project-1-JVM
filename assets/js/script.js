@@ -7,9 +7,12 @@ let userInputEl = document.querySelector('#user-input');
 let userNameEl = document.querySelector('#user-name');
 let userNameFormEl = document.querySelector('.user-name-form');
 let userNameHeader = document.querySelector('.surf-planner');
+let skillTextEl = document.querySelector('.skill-text');
+let skillWaveHeightEl = document.querySelector('.skill-wh');
 let location1El = document.querySelector('.location-1');
 let location2El = document.querySelector('.location-2');
 let location3El = document.querySelector('.location-3');
+let googleFooterEl = document.querySelector('.gf');
 
 let waveHeight06L1 = document.querySelector('.wh06-location-1');
 let weather06L1 = document.querySelector('.wr06-location-1');
@@ -95,7 +98,6 @@ function findNearbyBeaches(zipcode) {
                 radius: '30000',
                 keyword: 'beach'
             };
-
             const service = new google.maps.places.PlacesService(document.createElement('div')); // dummy element, since we don't want map
             // nearbySearch request using Places API
             service.nearbySearch(request, function (results, status) {
@@ -210,7 +212,7 @@ function findNearbyBeaches(zipcode) {
     }
     )
 };
-// times using 600-1800
+
 // Grab users location using HTML Geolocation API:
 function initApp() {
     navigator.geolocation.getCurrentPosition(function (position) {
@@ -222,6 +224,7 @@ function initApp() {
         if (userCoords !== null) {
             buttonContainerEl.classList.add('hide'); // once we get lat & lon from userlocation, hide first screen
             resultsEl.classList.remove('hide'); // show second screen
+            googleFooterEl.classList.remove('google-footer'); // format footer for second screen
             const userLocation = new google.maps.LatLng(userLat, userLon);
             console.log(userLat);
             console.log(userLon);
@@ -246,18 +249,6 @@ function initApp() {
                     location1El.textContent = beachLocations[0].name
                     location2El.textContent = beachLocations[1].name
                     location3El.textContent = beachLocations[2].name
-
-                    // Grab place.latitude
-                    // Grab place.longitude
-                    // need to write if statement if (sigHeight_m > 0) {}
-                    // Want to grab the first 5 locations IF it is truthy
-                    // if (difficulty == 1) Then set maxwaveheight = 2ft
-                    // if (difficulty == 2) then set maxwaveheight = 5ft
-                    // if (difficulty == 3) then set maxwaveheight = 11ft
-                    // if (difficulty == 1) Then set minwaveheight = 1ft
-                    // if (difficulty == 2) then set minwaveheight = 3ft
-                    // if (difficulty == 3) then set minwaveheight = 11ft
-                    // MENTAL NOTE: 1ft = 0.3048meters 2ft = 0.6096 
 
                     // input data from google places API into wwo API
                     let wwoAPIKey = 'f4799e0f512945df87a201101230909'
@@ -363,36 +354,6 @@ function initApp() {
     }
     )
 }
-// Grab place.latitude
-// Grab place.longitude
-// need to write if statement if (sigHeight_m > 0) {}
-// Want to grab the first 5 locations IF it is truthy
-// if (difficulty == 1) Then set maxwaveheight = 2ft
-// if (difficulty == 2) then set maxwaveheight = 5ft
-// if (difficulty == 3) then set maxwaveheight = 11ft
-// if (difficulty == 1) Then set minwaveheight = 1ft
-// if (difficulty == 2) then set minwaveheight = 3ft
-// if (difficulty == 3) then set minwaveheight = 11ft
-// MENTAL NOTE: 1ft = 0.3048meters 2ft = 0.6096 
-// console.log(locationLat);
-// console.log(locationLon);
-
-
-// let tempLat = 0;
-// let tempLon = 0;
-// let wwoAPIKey = '6d4a727b13e24cf7981194923230809'
-// let requestWeatherOnline = 'https://api.worldweatheronline.com/premium/v1/marine.ashx?key=' + wwoAPIKey + '&format=json&q=' + locationLon + ',' + locationLat;
-// fetch(requestWeatherOnline)
-//     .then(function (response) {
-//         return response.json();
-//     })
-//     .then(function (data) {
-//         console.log(data);
-//     })
-
-// Once name is entered, input is saved and used to update text content of title ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-// text content saved in local storage, and persists upon reload ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
 
 // If a zip code is entered, and a skill level is clicked, load in second screen and information for beaches
 // if no zip code is entered and a skill level is clicked, ask to use user location then load information for beaches
@@ -413,13 +374,18 @@ userNameFormEl.addEventListener('submit', function (event) {
 beginnerButtonEl.addEventListener('click', function (event) {
     event.preventDefault();
     console.log(userInputEl.value);
+    skillTextEl.classList.add('beginner');
+    skillTextEl.textContent = 'Beginner:';
+    skillWaveHeightEl.classList.add('beginner');
+    skillWaveHeightEl.textContent = 'Wave height of 1-2ft recommended'; // show beginner wave height message
+
     if (userInputEl.value !== '') {
         var userInputZip = userInputEl.value;
         userInputEl.textContent = '';
         findNearbyBeaches(userInputZip);
         buttonContainerEl.classList.add('hide'); // hide first screen
         resultsEl.classList.remove('hide'); // show second screen
-        beginnerSkillEl.classList.remove('hide'); // show beginner wave height message (Beginner: We recommend wave heights of 1-2ft) - also locations w/ wave height of 1-2ft will have a green background!
+        googleFooterEl.classList.remove('google-footer'); // format footer for second screen
     } else {
         initApp(); // ask for user location if no zipcode is entered
     }
@@ -428,12 +394,18 @@ beginnerButtonEl.addEventListener('click', function (event) {
 intermediateButtonEl.addEventListener('click', function (event) {
     event.preventDefault();
     console.log(userInputEl.value);
+    skillTextEl.classList.add('intermediate');
+    skillTextEl.textContent = 'Intermediate:';
+    skillWaveHeightEl.classList.add('intermediate');
+    skillWaveHeightEl.textContent = 'Wave height of 3-5ft recommended'; // show intermediate wave height message
+
     if (userInputEl.value !== '') {
         var userInputZip = userInputEl.value;
         userInputEl.textContent = '';
         findNearbyBeaches(userInputZip);
         buttonContainerEl.classList.add('hide'); // hide first screen
         resultsEl.classList.remove('hide'); // show second screen
+        googleFooterEl.classList.remove('google-footer'); // format footer for second screen
     } else {
         initApp(); // ask for user location if no zipcode is entered
     }
@@ -442,12 +414,18 @@ intermediateButtonEl.addEventListener('click', function (event) {
 advancedButtonEl.addEventListener('click', function (event) {
     event.preventDefault();
     console.log(userInputEl.value);
+    skillTextEl.classList.add('advanced');
+    skillTextEl.textContent = 'Advanced:';
+    skillWaveHeightEl.classList.add('advanced');
+    skillWaveHeightEl.textContent = 'Wave height of 6-11ft recommended'; // show advanced wave height message
+
     if (userInputEl.value !== '') {
         var userInputZip = userInputEl.value;
         userInputEl.textContent = '';
         findNearbyBeaches(userInputZip);
         buttonContainerEl.classList.add('hide'); // hide first screen
         resultsEl.classList.remove('hide'); // show second screen
+        googleFooterEl.classList.remove('google-footer'); // format footer for second screen
     } else {
         initApp(); // ask for user location if no zipcode is entered
     }
