@@ -9,19 +9,19 @@ An application that shows you the surf conditions of 3 nearby beaches every 3 ho
 * As a beginner surfer:
  I want to see the wave heights, weather and wind conditions for nearby beaches
 
-* It is done when I am able to enter my zipcode or use my current location to see the conditions of beaches nearby
+* It is done when I am able to enter my zip code or use my current location to see the conditions of beaches nearby
 * It is done when I am able to click my skill level and see a recommendation of wave height for my skill level (1-2ft for beginners)
 ---
 * As an intermediate surfer:
 * I want to see the wave heights, weather and wind conditions for nearby beaches
 
-* It is done when I am able to enter my zipcode or use my current location to see the conditions of beaches nearby
+* It is done when I am able to enter my zip code or use my current location to see the conditions of beaches nearby
 * It is done when I am able to click my skill level and see a recommendation of wave height for my skill level (3-5ft for intermediate surfers)
 ---
 * As an advanced surfer:
 * I want to see the wave heights, weather and wind conditions for nearby beaches
 
-* It is done when I am able to enter my zipcode or use my current location to see the conditions of beaches nearby
+* It is done when I am able to enter my zip code or use my current location to see the conditions of beaches nearby
 * It is done when I am able to click my skill level and see a recommendation of wave height for my skill level (6-11ft for advanced surfers)
 
 ## Installation
@@ -38,6 +38,15 @@ In order to get beach information, you must enter your zip code and click on you
 
 https://marcos-wang.github.io/Project-1-JVM/
 
+## Technologies Used
+
+HTML
+CSS Framework: Bulma
+JavaScript
+Google - Places API
+Google - Geocoding API
+World Weather Online - Weather API
+
 ## Credits
 
 The Google Places API was used to find nearby beaches. Link to Places API: https://developers.google.com/maps/documentation/places/web-service
@@ -46,7 +55,9 @@ The Google Geocoding API was used to find the latitude and longitude of the ente
 
 The Weather API by World Weather Online was used to find the wave height, weather and wind speed at the nearby beaches. Link to Weather API: https://www.worldweatheronline.com/weather-api/api/
 
-CSS Reset Stylesheet taken from MeyerWeb's public domain. See below for link to Eric Meyer's CSS Reset Stylesheet: https://meyerweb.com/eric/tools/css/reset/
+CSS Reset Stylesheet taken from MeyerWeb's public domain. Link to Eric Meyer's CSS Reset Stylesheet: https://meyerweb.com/eric/tools/css/reset/
+
+The Bulma CSS Framework was used to format our web application. Link to Bulma CSS Framework: https://bulma.io/
 
 ## License
 
