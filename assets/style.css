@@ -4,6 +4,7 @@ body {
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: cover;
+  min-height: 100vh;
 }
 
 button{
@@ -16,6 +17,10 @@ header {
   font-family: 'Original Surfer', cursive;
 }
 
+strong {
+  font-weight: 800;
+}
+
 .surf-planner{
   font-size: 80px;
 }
@@ -23,11 +28,6 @@ header {
 .zip-code{
   max-width: 185px;
 }
-
-strong {
-  font-weight: 800;
-}
-
 
 .location-1-6am {
   max-width: 65%;
@@ -123,3 +123,18 @@ strong {
   display:none;
 }
 
+.beginner {
+  color: rgb(52, 118, 72);
+}
+
+.intermediate {
+  color: rgb(228, 228, 151);
+}
+
+.advanced {
+  color: rgb(169, 61, 61);
+}
+
+.google-footer {
+  margin-top: 1000px;
+}
